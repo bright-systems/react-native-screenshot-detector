@@ -13,3 +13,7 @@ export function subscribe(cb) {
 export function unsubscribe(eventEmitter) {
   eventEmitter.removeAllListeners(SCREENSHOT_EVENT);
 }
+
+export function detectScreenshot(){
+  NativeModules.ScreenshotDetector.detectScreenshot();
+}

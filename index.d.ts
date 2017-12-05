@@ -3,4 +3,5 @@ declare module "react-native-screenshot-detector" {
 
     export function subscribe(cb: Function): NativeEventEmitter;
     export function unsubscribe(eventEmitter: NativeEventEmitter): void;
+    export function detectScreenshot(): void;
 }
