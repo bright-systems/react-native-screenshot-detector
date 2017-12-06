@@ -15,3 +15,15 @@ export function subscribe(cb) {
 export function unsubscribe(eventEmitter) {
   eventEmitter.removeAllListeners(SCREENSHOT_EVENT);
 }
+
+export function activateAndroidFlagSecure(){
+  if(Platform.OS === 'android') {    
+    NativeModules.ScreenshotDetector.activateFlagSecure();
+  }
+}
+
+export function deactivateAndroidFlagSecure(){
+  if(Platform.OS === 'android') {    
+    NativeModules.ScreenshotDetector.deactivateFlagSecure();
+  }
+}

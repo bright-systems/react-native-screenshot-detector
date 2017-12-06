@@ -44,6 +44,7 @@ public class ScreenshotDetector extends ReactContextBaseJavaModule {
 
                 for (ActivityManager.RunningServiceInfo ar : rs) {
                     if (ar.process.equals("com.android.systemui:screenshot")) {
+                        Toast.makeText(activity, "Screenshot captured!!", Toast.LENGTH_SHORT).show();
                         reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                                 .emit("ScreenshotTaken", params);
                     }
@@ -51,5 +52,33 @@ public class ScreenshotDetector extends ReactContextBaseJavaModule {
                 h.postDelayed(this, delay);
             }
         }, delay);
+    }
+
+    @ReactMethod
+    public void activateFlagSecure() {
+        final Activity activity = getCurrentActivity();
+
+        if (activity != null) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+                }
+            });
+        }
+    }
+
+    @ReactMethod
+    public void deactivateFlagSecure() {
+        final Activity activity = getCurrentActivity();
+
+        if (activity != null) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
+                }
+            });
+        }
     }
 }
