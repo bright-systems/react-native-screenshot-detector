@@ -24,7 +24,7 @@ public class RNScreenshotDetectorModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void enableScreenshots() {
+  public void disableScreenshots() {
     getCurrentActivity().runOnUiThread(new Runnable() {
       @Override
       public void run() {
@@ -34,7 +34,7 @@ public class RNScreenshotDetectorModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void disableScreenshots() {
+  public void enableScreenshots() {
     getCurrentActivity().runOnUiThread(new Runnable() {
       @Override
       public void run() {
