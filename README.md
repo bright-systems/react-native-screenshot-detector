@@ -22,7 +22,7 @@ Accordingly, this library exports different APIs for Android and iOS. See [Usage
 import ScreenshotDetector from '@exodus/react-native-screenshot-detector';
 
 // iOS
-ScreenshotDetector.onScreenshot(() => {
+ScreenshotDetector.subscribe(() => {
   // yell at the user. We'll leave the choice of obscenities to you
 })
 
