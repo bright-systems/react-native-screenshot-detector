@@ -2,8 +2,7 @@
 {
   "name": "react-native-screenshot-detector",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "detect when the user takes a screenshot",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
