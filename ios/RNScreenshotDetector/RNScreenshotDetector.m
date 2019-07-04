@@ -6,22 +6,23 @@
 
 #import "RNScreenshotDetector.h"
 #import <React/RCTBridge.h>
-#import <React/RCTEventDispatcher.h>
 
 @implementation RNScreenshotDetector
+{
+    id observer;
+}
 
 RCT_EXPORT_MODULE();
+
 
 - (NSArray<NSString *> *)supportedEvents {
     return @[@"ScreenshotTaken"];
 }
 
-- (void)setupAndListen:(RCTBridge*)bridge {
-    // First set up native bridge
-    [self setBridge:bridge];
-    // Now set up handler to detect if user takes a screenshot
+- (void)startObserving {
+   // Now set up handler to detect if user takes a screenshot
     NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationUserDidTakeScreenshotNotification
+    observer = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationUserDidTakeScreenshotNotification
                                                       object:nil
                                                        queue:mainQueue
                                                   usingBlock:^(NSNotification *notification) {
@@ -29,8 +30,16 @@ RCT_EXPORT_MODULE();
                                                   }];
 }
 
+- (void)stopObserving {
+    if (observer != nil) {
+        [[NSNotificationCenter defaultCenter] removeObserver:observer];
+    }
+}
+
 - (void)screenshotDetected:(NSNotification *)notification {
-    [self.bridge.eventDispatcher sendAppEventWithName:@"ScreenshotTaken" body:nil];
+    if (observer != nil) {
+        [self sendEventWithName:@"ScreenshotTaken" body:@{}];
+    }
 }
 
 @end
