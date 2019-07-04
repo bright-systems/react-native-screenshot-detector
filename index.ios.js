@@ -11,6 +11,5 @@ const subscribe = (cb) => {
 }
 
 export default {
-  SCREENSHOT_EVENT,
   subscribe,
 }
