@@ -6,7 +6,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-import tech.theelephant.reactnative.screenshotdetector.ScreenshotDetector;
+import com.bright.android.screenshotdetector.ScreenshotDetector;
 
 import java.util.*;
 
