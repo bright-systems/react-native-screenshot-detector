@@ -1,4 +1,4 @@
-package tech.theelephant.reactnative.screenshotdetector;
+package com.bright.android.screenshotdetector;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
