@@ -1,4 +1,4 @@
-package tech.theelephant.reactnative.screenshotdetector;
+package com.bright.android.screenshotdetector;
 
 import android.os.Handler;
 import android.app.Activity;
