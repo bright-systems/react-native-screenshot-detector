@@ -1,25 +1,22 @@
 
-# @exodus/react-native-screenshot-detector
+# @bright-systems/react-native-screenshot-detector
 
 *NOTE: forked and adapted from https://github.com/blend/react-native-screenshot-detector*
 
 The goal is to prevent the user from taking screenshots in your app.
 
-- Android: possible via the [FLAG_SECURE flag](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_SECURE)
-- iOS: impossible, but you *can* detect them
-
 Accordingly, this library exports different APIs for Android and iOS. See [Usage](#usage) below.
 
 ## Getting started
 
-`$ npm install @exodus/react-native-screenshot-detector --save`
+`$ yarn add @bright-systems/react-native-screenshot-detector`
 
-`$ react-native link @exodus/react-native-screenshot-detector`
+`$ react-native link @bright-systems/react-native-screenshot-detector`
 
 ## Usage
 
 ```javascript
-import ScreenshotDetector from '@exodus/react-native-screenshot-detector';
+import ScreenshotDetector from '@bright-systems/react-native-screenshot-detector';
 
 // iOS
 ScreenshotDetector.subscribe(() => {
