@@ -44,7 +44,6 @@ public class ScreenshotDetector extends ReactContextBaseJavaModule {
 
                 for (ActivityManager.RunningServiceInfo ar : rs) {
                     if (ar.process.equals("com.android.systemui:screenshot")) {
-                        Toast.makeText(activity, "Screenshot captured!!", Toast.LENGTH_SHORT).show();
                         reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                                 .emit("ScreenshotTaken", params);
                     }
