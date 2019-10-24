@@ -53,32 +53,4 @@ public class ScreenshotDetector extends ReactContextBaseJavaModule {
             }
         }, delay);
     }
-
-    @ReactMethod
-    public void activateFlagSecure() {
-        final Activity activity = getCurrentActivity();
-
-        if (activity != null) {
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
-                }
-            });
-        }
-    }
-
-    @ReactMethod
-    public void deactivateFlagSecure() {
-        final Activity activity = getCurrentActivity();
-
-        if (activity != null) {
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
-                }
-            });
-        }
-    }
 }
